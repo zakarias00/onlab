@@ -1,5 +1,6 @@
 package com.amplifyframework.datastore.generated.model;
 
+import com.amplifyframework.core.model.annotations.HasMany;
 import com.amplifyframework.core.model.temporal.Temporal;
 
 import java.util.List;
@@ -32,6 +33,7 @@ public final class User implements Model {
   public static final QueryField BIRTHDAY = field("User", "birthday");
   public static final QueryField SCHOOL = field("User", "school");
   public static final QueryField EMAIL = field("User", "email");
+  public static final QueryField PASSWORD = field("User", "password");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String") String name;
   private final @ModelField(targetType="String") String first_name;
@@ -39,6 +41,9 @@ public final class User implements Model {
   private final @ModelField(targetType="String") String birthday;
   private final @ModelField(targetType="String") String school;
   private final @ModelField(targetType="AWSEmail") String email;
+  private final @ModelField(targetType="Message") @HasMany(associatedWith = "userID", type = Message.class) List<Message> Messages = null;
+  private final @ModelField(targetType="String") String password;
+  private final @ModelField(targetType="StuddySessionUser") @HasMany(associatedWith = "user", type = StuddySessionUser.class) List<StuddySessionUser> studdysessions = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -69,6 +74,18 @@ public final class User implements Model {
       return email;
   }
   
+  public List<Message> getMessages() {
+      return Messages;
+  }
+  
+  public String getPassword() {
+      return password;
+  }
+  
+  public List<StuddySessionUser> getStuddysessions() {
+      return studdysessions;
+  }
+  
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
   }
@@ -77,7 +94,7 @@ public final class User implements Model {
       return updatedAt;
   }
   
-  private User(String id, String name, String first_name, String second_name, String birthday, String school, String email) {
+  private User(String id, String name, String first_name, String second_name, String birthday, String school, String email, String password) {
     this.id = id;
     this.name = name;
     this.first_name = first_name;
@@ -85,6 +102,7 @@ public final class User implements Model {
     this.birthday = birthday;
     this.school = school;
     this.email = email;
+    this.password = password;
   }
   
   @Override
@@ -102,6 +120,7 @@ public final class User implements Model {
               ObjectsCompat.equals(getBirthday(), user.getBirthday()) &&
               ObjectsCompat.equals(getSchool(), user.getSchool()) &&
               ObjectsCompat.equals(getEmail(), user.getEmail()) &&
+              ObjectsCompat.equals(getPassword(), user.getPassword()) &&
               ObjectsCompat.equals(getCreatedAt(), user.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), user.getUpdatedAt());
       }
@@ -117,6 +136,7 @@ public final class User implements Model {
       .append(getBirthday())
       .append(getSchool())
       .append(getEmail())
+      .append(getPassword())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -134,6 +154,7 @@ public final class User implements Model {
       .append("birthday=" + String.valueOf(getBirthday()) + ", ")
       .append("school=" + String.valueOf(getSchool()) + ", ")
       .append("email=" + String.valueOf(getEmail()) + ", ")
+      .append("password=" + String.valueOf(getPassword()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -160,6 +181,7 @@ public final class User implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -171,7 +193,8 @@ public final class User implements Model {
       second_name,
       birthday,
       school,
-      email);
+      email,
+      password);
   }
   public interface BuildStep {
     User build();
@@ -182,6 +205,7 @@ public final class User implements Model {
     BuildStep birthday(String birthday);
     BuildStep school(String school);
     BuildStep email(String email);
+    BuildStep password(String password);
   }
   
 
@@ -193,6 +217,7 @@ public final class User implements Model {
     private String birthday;
     private String school;
     private String email;
+    private String password;
     @Override
      public User build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -204,7 +229,8 @@ public final class User implements Model {
           second_name,
           birthday,
           school,
-          email);
+          email,
+          password);
     }
     
     @Override
@@ -243,6 +269,12 @@ public final class User implements Model {
         return this;
     }
     
+    @Override
+     public BuildStep password(String password) {
+        this.password = password;
+        return this;
+    }
+    
     /** 
      * @param id id
      * @return Current Builder instance, for fluent method chaining
@@ -255,14 +287,15 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String name, String firstName, String secondName, String birthday, String school, String email) {
+    private CopyOfBuilder(String id, String name, String firstName, String secondName, String birthday, String school, String email, String password) {
       super.id(id);
       super.name(name)
         .firstName(firstName)
         .secondName(secondName)
         .birthday(birthday)
         .school(school)
-        .email(email);
+        .email(email)
+        .password(password);
     }
     
     @Override
@@ -293,6 +326,11 @@ public final class User implements Model {
     @Override
      public CopyOfBuilder email(String email) {
       return (CopyOfBuilder) super.email(email);
+    }
+    
+    @Override
+     public CopyOfBuilder password(String password) {
+      return (CopyOfBuilder) super.password(password);
     }
   }
   

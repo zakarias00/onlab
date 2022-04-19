@@ -14,8 +14,8 @@
 
         <EditText
             android:id="@+id/etChangedFName"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
+            android:layout_width="251dp"
+            android:layout_height="48dp"
             android:layout_marginTop="52dp"
             android:hint="@string/first_name"
             android:inputType="textPersonName"
@@ -29,8 +29,8 @@
 
         <EditText
             android:id="@+id/etChangedSName"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
+            android:layout_width="251dp"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:hint="@string/second_name"
             android:inputType="textPersonName"
@@ -45,14 +45,14 @@
 
         <EditText
             android:id="@+id/etChangedUName"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
+            android:layout_width="251dp"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
+            android:background="@drawable/shape"
             android:hint="@string/username"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:paddingStart="15dp"
-            android:background="@drawable/shape"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +61,8 @@
 
         <EditText
             android:id="@+id/etChangedEmail"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
+            android:layout_width="251dp"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:hint="@string/email_address"
             android:background="@drawable/shape"
@@ -77,8 +77,8 @@
 
         <EditText
             android:id="@+id/etChangedPwd"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
+            android:layout_width="251dp"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:hint="@string/password"
             android:inputType="textPersonName"
@@ -93,8 +93,8 @@
 
         <EditText
             android:id="@+id/etChangedBirthDate"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
+            android:layout_width="251dp"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:hint="@string/birth_date"
             android:inputType="text|date"
@@ -109,8 +109,8 @@
 
         <EditText
             android:id="@+id/etChangedSchool"
-            android:layout_width="320dp"
-            android:layout_height="65dp"
+            android:layout_width="251dp"
+            android:layout_height="48dp"
             android:layout_marginTop="20dp"
             android:hint="@string/school"
             android:inputType="textPersonName"
@@ -128,10 +128,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/shape"
+            android:text="@string/save"
             android:textColor="@color/black"
-            android:text = "@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

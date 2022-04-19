@@ -106,13 +106,14 @@ class SignUpActivity : AppCompatActivity() {
 
         Amplify.DataStore.save(
             User.builder()
-                .id(Amplify.Auth.currentUser.userId)
-                .name(Amplify.Auth.currentUser.username)
+                //.id(Amplify.Auth.currentUser.userId)
+                .name(binding.etUserName2.text.toString())
                 .email(binding.etEmail.text.toString())
                 .birthday("2000-12-05")
                 .firstName(binding.etFName.text.toString())
                 .secondName(binding.etSName.text.toString())
                 .school(binding.etSchool.text.toString())
+                .password(binding.etPassword2.text.toString())
                 .build(),
             this::onSavedSuccess,
             this::onSaveError
@@ -157,6 +158,7 @@ class SignUpActivity : AppCompatActivity() {
         runOnUiThread {
             Toast.makeText(applicationContext, e.message, Toast.LENGTH_LONG)
                 .show()
+
         }
     }
 }

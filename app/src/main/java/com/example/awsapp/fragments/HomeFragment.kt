@@ -42,10 +42,12 @@ class HomeFragment : Fragment() {
             { items ->
                 while (items.hasNext()) {
                     val item = items.next()
-                    Log.i("Amplify", "Queried item: " + item.id)
+                    Log.i("Datastore", item.name)
                 }
             },
-            { failure -> Log.e("Tutorial", "Could not query DataStore", failure) }
+            {
+                    failure -> Log.e("TAG", failure.message.toString())
+            }
         )
 
         binding.btnLogout.setOnClickListener{
@@ -55,6 +57,8 @@ class HomeFragment : Fragment() {
                     this::onSignOutError
                 )
         }
+
+
     }
 
     private fun onSignOutError(e:AuthException) {

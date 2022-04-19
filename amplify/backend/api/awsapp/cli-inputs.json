@@ -3,7 +3,7 @@
   "serviceConfiguration": {
     "apiName": "awsapp",
     "serviceName": "AppSync",
-    "gqlSchemaPath": "/tmp/amplify-9081c734-fb3f-442d-a2a1-e96c6cc2b7c5/amplify/backend/api/awsapp/schema.graphql",
+    "gqlSchemaPath": "/tmp/amplify-0ed6fed1-700a-46fb-820a-0b8b91b9afeb/amplify/backend/api/awsapp/schema.graphql",
     "defaultAuthType": {
       "mode": "AMAZON_COGNITO_USER_POOLS",
       "cognitoUserPoolId": "authawsappa6766066"

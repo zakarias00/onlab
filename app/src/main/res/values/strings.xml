@@ -9,7 +9,6 @@
     <string name="messages">Messages</string>
     <string name="profile">Profile</string>
     <string name="search">Search</string>
-   <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="modify">Modify</string>
     <string name="log_out">Log out</string>
     <string name="confirm_your_e_mail_address">Confirm your e-mail address!</string>
@@ -23,4 +22,8 @@
     <string name="school">School</string>
     <string name="email_address">Email address</string>
     <string name="birth_date">Birth date</string>
+    <string name="create_your_own_study_session">Create your own study session!</string>
+    <string name="topic">Topic</string>
+    <string name="location">Location</string>
+    <string name="done">Done</string>
 </resources>

@@ -1,3 +1,18 @@
+type StuddySession @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  topic: String
+  date: AWSDate
+  time: AWSTime
+  location: String
+  Participants: [User] @manyToMany(relationName: "StuddySessionUser")
+}
+
+type Message @model @auth(rules: [{allow: private}]) {
+  id: ID!
+  content: String
+  userID: ID! @index(name: "byUser")
+}
+
 type User @model @auth(rules: [{allow: owner, operations: [create, delete, update]}]) {
   id: ID!
   name: String
@@ -6,5 +21,8 @@ type User @model @auth(rules: [{allow: owner, operations: [create, delete, updat
   birthday: String
   school: String
   email: AWSEmail
+  Messages: [Message] @hasMany(indexName: "byUser", fields: ["id"])
+  password: String
+  studdysessions: [StuddySession] @manyToMany(relationName: "StuddySessionUser")
 }
  

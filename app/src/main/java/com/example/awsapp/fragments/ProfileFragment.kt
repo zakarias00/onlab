@@ -12,13 +12,12 @@ import com.amplifyframework.auth.AuthException
 import com.amplifyframework.auth.AuthUserAttribute
 import com.amplifyframework.core.Amplify
 import com.amplifyframework.datastore.generated.model.User
+import com.example.awsapp.R
 import com.example.awsapp.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
-    private lateinit var modifyFragment: ChangeDialogFragment
-    //private val userId =
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,11 +39,11 @@ class ProfileFragment : Fragment() {
         binding.tvEmail.text = arguments?.getString("eMail")
         binding.tvPassword.text = arguments?.getString("password")
 
-        val attributes = Amplify.Auth.fetchUserAttributes(
+       /* val attributes = Amplify.Auth.fetchUserAttributes(
                 this::onSuccess,
                 this::onError
             )
-
+*/
             /*Log.i("TAG", "User attributes = $attributes")
         } catch (error: AuthException) {
             Log.e("TAG", "Failed to fetch user attributes", error)
@@ -65,17 +64,13 @@ class ProfileFragment : Fragment() {
                     }
                 },
 
-                { failure -> Log.e("Tutorial", "Could not query DataStore", failure) }
+                {
+                        failure -> Log.e("TAG", failure.message.toString())
+                }
             )
 
             binding.btnModify.setOnClickListener {
-                modifyFragment = ChangeDialogFragment()
-
-
-                /*ChangeDialogFragment().show(
-                childFragementManager
-            )*/
-
+                showDialog()
             }
     }
 
@@ -88,7 +83,12 @@ class ProfileFragment : Fragment() {
         runOnUiThread {
             Toast.makeText(context, e.message, Toast.LENGTH_LONG)
                 .show()
-            Log.i("TAG", e.toString())
+            Log.e("TAG", e.toString())
         }
+    }
+
+    private fun showDialog(){
+        val changeDialog = ChangeDialogFragment()
+        changeDialog.show(childFragmentManager, "fragment_name")
     }
 }

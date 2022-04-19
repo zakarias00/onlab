@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.awsapp.R
-import com.example.awsapp.fragments.HomeFragment
-import com.example.awsapp.fragments.MessageFragment
-import com.example.awsapp.fragments.ProfileFragment
-import com.example.awsapp.fragments.SearchFragment
+import com.example.awsapp.fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
@@ -38,7 +35,7 @@ class HomeActivity : AppCompatActivity() {
         bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.home ->setCurrentFragment(homeFragment)
-                R.id.message ->setCurrentFragment(messageFragment)
+                R.id.messages ->setCurrentFragment(messageFragment)
                 R.id.search ->setCurrentFragment(searchFragment)
                 R.id.profile ->setCurrentFragment(profileFragment)
 

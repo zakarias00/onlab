@@ -13,16 +13,22 @@ class AWSAppApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        configureAmplify()
+    }
+
+
+    private fun configureAmplify(){
 
         try {
-            //  val modelProvider : SimpleModelProvider = SimpleModelProvider.getInstance()
-            Amplify.addPlugin(AWSDataStorePlugin())
-            Amplify.addPlugin((AWSApiPlugin()))
+            //Amplify.addPlugin((AWSApiPlugin()))
 
             Amplify.addPlugin(AWSCognitoAuthPlugin())
 
+            //val dataStorePlugin = AWSDataStorePlugin.builder()
+            Amplify.addPlugin(AWSDataStorePlugin())
+
             Amplify.configure(applicationContext)
-            Log.i("TAG", "configured")
+            //Log.i("TAG", "configured")
 
         } catch (e : AmplifyException) {
             e.printStackTrace()
